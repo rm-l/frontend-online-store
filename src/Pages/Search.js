@@ -1,9 +1,11 @@
 import React from 'react';
+import Botao from '../componets/Botao';
 import { getCategories } from '../services/api';
 import Categories from '../components/Categories';
 
 class Search extends React.Component {
   state = {
+    btn: [],
     search: '',
     categories: [],
   };
@@ -23,9 +25,11 @@ class Search extends React.Component {
   };
 
   render() {
-    const { search, categories } = this.state;
+    const { search, btn } = this.state;
+    const { categories } = this.state;
     return (
       <>
+        <Botao produtosDoCarrinho={ btn } />
         <label htmlFor="search">
           <input
             id="search"
