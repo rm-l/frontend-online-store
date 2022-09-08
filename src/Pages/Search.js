@@ -1,9 +1,17 @@
 import React from 'react';
+import { getCategories } from '../services/api';
+import Categories from '../components/Categories';
 
 class Search extends React.Component {
   state = {
     search: '',
+    categories: [],
   };
+
+  async componentDidMount() {
+    const categories = await getCategories();
+    this.setState({ categories });
+  }
 
   handleChange = (event) => {
     const { target } = event;
@@ -15,7 +23,7 @@ class Search extends React.Component {
   };
 
   render() {
-    const { search } = this.state;
+    const { search, categories } = this.state;
     return (
       <>
         <label htmlFor="search">
@@ -29,6 +37,16 @@ class Search extends React.Component {
         <span data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </span>
+        {/* Requisito 04 */}
+        <span>
+          {categories.map((category) => (
+            <Categories
+              key={ category.id }
+              value={ category.name }
+              id={ category.id }
+            />))}
+        </span>
+        {/* Requisito 04 */}
       </>
     );
   }
