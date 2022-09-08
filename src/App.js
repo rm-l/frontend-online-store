@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Search from './Pages/Search';
-import ShoppingCart from './componets/ShoppingCart';
+import Search from './pages/Search';
+import ShoppingCart from './components/ShoppingCart';
 
 class App extends React.Component {
   render() {
