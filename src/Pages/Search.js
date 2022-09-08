@@ -1,11 +1,19 @@
 import React from 'react';
 import Botao from '../componets/Botao';
+import { getCategories } from '../services/api';
+import Categories from '../components/Categories';
 
 class Search extends React.Component {
   state = {
     btn: [],
     search: '',
+    categories: [],
   };
+
+  async componentDidMount() {
+    const categories = await getCategories();
+    this.setState({ categories });
+  }
 
   handleChange = (event) => {
     const { target } = event;
@@ -18,6 +26,7 @@ class Search extends React.Component {
 
   render() {
     const { search, btn } = this.state;
+    const { categories } = this.state;
     return (
       <>
         <Botao produtosDoCarrinho={ btn } />
@@ -32,6 +41,16 @@ class Search extends React.Component {
         <span data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </span>
+        {/* Requisito 04 */}
+        <span>
+          {categories.map((category) => (
+            <Categories
+              key={ category.id }
+              value={ category.name }
+              id={ category.id }
+            />))}
+        </span>
+        {/* Requisito 04 */}
       </>
     );
   }
