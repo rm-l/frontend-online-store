@@ -12,16 +12,13 @@ export async function getProductsFromCategoryAndQuery(categoryId, query) {
     const response = await fetch(ENDPOINT_01);
     const data = await response.json();
     return data;
-  } 
+  }
   if (query !== undefined) {
     const response = await fetch(ENDPOINT_02);
     const data = await response.json();
     return data;
   }
-  else {
-    
-  }
-
+  return 'Algum produto ou categoria deve ser buscada';
 }
 
 export async function getProductById() {
