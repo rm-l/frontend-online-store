@@ -1,7 +1,9 @@
 import React from 'react';
+import Botao from '../componets/Botao';
 
 class Search extends React.Component {
   state = {
+    btn: [],
     search: '',
   };
 
@@ -15,9 +17,10 @@ class Search extends React.Component {
   };
 
   render() {
-    const { search } = this.state;
+    const { search, btn } = this.state;
     return (
       <>
+        <Botao produtosDoCarrinho={ btn } />
         <label htmlFor="search">
           <input
             id="search"
