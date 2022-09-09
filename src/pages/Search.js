@@ -88,6 +88,7 @@ class Search extends React.Component {
               title={ p.title }
               price={ p.price }
               thumbnail={ p.thumbnail }
+              id={ p.id }
             />))}
       </>
     );
