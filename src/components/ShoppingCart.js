@@ -10,7 +10,6 @@ class ShoppingCart extends React.Component {
     if (products !== null) {
       this.setState({ products });
     }
-    console.log(products);
   }
 
   render() {
