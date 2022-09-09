@@ -106,6 +106,7 @@ class Search extends React.Component {
               price={ p.price }
               thumbnail={ p.thumbnail }
               onClick={ this.addCart }
+              id={ p.id }
             />))}
       </>
     );
