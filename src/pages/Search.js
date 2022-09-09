@@ -39,6 +39,12 @@ class Search extends React.Component {
     }
   };
 
+  handleCategories = async (event) => {
+    const { target: { id } } = event;
+    const data = await getProductsFromCategoryAndQuery(id);
+    this.setState({ products: data.results });
+  };
+
   render() {
     const { search, btn } = this.state;
     const { categories, products } = this.state;
@@ -71,6 +77,7 @@ class Search extends React.Component {
               key={ category.id }
               value={ category.name }
               id={ category.id }
+              onClick={ this.handleCategories }
             />))}
         </span>
         {/* Requisito 04 */}
