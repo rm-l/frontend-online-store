@@ -7,17 +7,17 @@ class ProductCard extends React.Component {
     const { title, price, thumbnail, id } = this.props;
     return (
       <>
-      <Link to={ `ProductDetails/${id}` } data-testid="product-detail-link">
-        <ul data-testid="product">
-          <li>{ title }</li>
-          <li>{ price }</li>
-          <img
-            src={ thumbnail }
-            alt={ title }
-          />
-        </ul>
-      </Link>
-       <button
+        <Link to={ `ProductDetails/${id}` } data-testid="product-detail-link">
+          <ul data-testid="product">
+            <li>{ title }</li>
+            <li>{ price }</li>
+            <img
+              src={ thumbnail }
+              alt={ title }
+            />
+          </ul>
+        </Link>
+        <button
           id={ title }
           data-testid="product-add-to-cart"
           type="button"
@@ -25,7 +25,7 @@ class ProductCard extends React.Component {
         >
           Adicionar ao carrinho
         </button>
-        </>
+      </>
     );
   }
 }
