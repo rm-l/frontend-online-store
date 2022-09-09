@@ -3,7 +3,7 @@ import PropType from 'prop-types';
 
 class ProductCard extends React.Component {
   render() {
-    const { title, price, thumbnail } = this.props;
+    const { title, price, thumbnail, onClick } = this.props;
     return (
       <ul data-testid="product">
         <li>{ title }</li>
@@ -12,6 +12,14 @@ class ProductCard extends React.Component {
           src={ thumbnail }
           alt={ title }
         />
+        <button
+          id={ title }
+          data-testid="product-add-to-cart"
+          type="button"
+          onClick={ onClick }
+        >
+          Adicionar ao carrinho
+        </button>
       </ul>
     );
   }
@@ -21,6 +29,7 @@ ProductCard.propTypes = {
   title: PropType.string,
   price: PropType.number,
   thumbnail: PropType.string,
+  onClick: PropType.func,
 }.isRequired;
 
 export default ProductCard;

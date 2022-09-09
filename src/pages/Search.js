@@ -45,6 +45,23 @@ class Search extends React.Component {
     this.setState({ products: data.results });
   };
 
+  addCart = (event) => {
+    const { target: { id } } = event;
+    const { products } = this.state;
+    const lastCart = JSON.parse(localStorage.getItem('cartItems'));
+    if (lastCart === null) {
+      const product = products.find((p) => p.title === id);
+      const saved = product;
+      const initial = [saved];
+      localStorage.setItem('cartItems', JSON.stringify(initial));
+    } else {
+      const product = products.find((p) => p.title === id);
+      const saved = product;
+      const items = [...lastCart, saved];
+      localStorage.setItem('cartItems', JSON.stringify(items));
+    }
+  };
+
   render() {
     const { search, btn } = this.state;
     const { categories, products } = this.state;
@@ -88,6 +105,7 @@ class Search extends React.Component {
               title={ p.title }
               price={ p.price }
               thumbnail={ p.thumbnail }
+              onClick={ this.addCart }
             />))}
       </>
     );
