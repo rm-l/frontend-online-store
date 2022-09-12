@@ -87,7 +87,6 @@ class Search extends React.Component {
         <span data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </span>
-        {/* Requisito 04 */}
         <span>
           {categories.map((category) => (
             <Categories
@@ -97,7 +96,6 @@ class Search extends React.Component {
               onClick={ this.handleCategories }
             />))}
         </span>
-        {/* Requisito 04 */}
         {products.length === 0 ? <h2>Nenhum produto foi encontrado</h2>
           : products.map((p) => (
             <ProductCard
