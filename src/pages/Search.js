@@ -35,7 +35,6 @@ class Search extends React.Component {
     } else {
       const products = await getProductsFromCategoryAndQuery(undefined, search);
       this.setState({ products: products.results });
-      console.log(await products.results[0]);
     }
   };
 
