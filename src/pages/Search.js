@@ -1,5 +1,5 @@
 import React from 'react';
-import Botao from '../components/Botao';
+import Button from '../components/Button';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 import Categories from '../components/Categories';
 import ProductCard from '../components/ProductCard';
@@ -66,7 +66,7 @@ class Search extends React.Component {
     const { categories, products } = this.state;
     return (
       <>
-        <Botao produtosDoCarrinho={ btn } />
+        <Button produtosDoCarrinho={ btn } />
         <label htmlFor="search">
           <input
             data-testid="query-input"
