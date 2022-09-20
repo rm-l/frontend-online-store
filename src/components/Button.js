@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-class Botao extends React.Component {
+class Button extends React.Component {
   render() {
     const { produtosDoCarrinho } = this.props;
     return (
@@ -19,8 +19,8 @@ class Botao extends React.Component {
   }
 }
 
-Botao.propTypes = {
+Button.propTypes = {
   produtosDoCarrinho: PropTypes.array,
 }.isRequired;
 
-export default Botao;
+export default Button;

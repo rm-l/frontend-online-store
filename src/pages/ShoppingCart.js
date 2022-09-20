@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ShoppingCart extends React.Component {
   state = {
@@ -100,20 +101,14 @@ class ShoppingCart extends React.Component {
               </button>
             </div>
           ))}
-        <div>
-          <p>
-            Valor Total:
-            {/* {totalPrice} */}
-          </p>
-        </div>
-        <button
-          type="button"
-          data-testid="checkout-products"
-          onClick={ this.handleClick }
-          // disabled={ produtosDoCarrinho.length < 1 }
-        >
-          Finalizar Compra
-        </button>
+        <Link to="/Checkout">
+          <button
+            type="button"
+            data-testid="checkout-products"
+          >
+            Finalizar compra
+          </button>
+        </Link>
       </div>
     );
   }

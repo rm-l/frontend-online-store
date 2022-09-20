@@ -2,10 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductById } from '../services/api';
+import Form from '../components/Form';
+import ReviewCard from '../components/ReviewCard';
 
 class ProductDetails extends React.Component {
   state = {
     product: '',
+    reviews: [],
   };
 
   async componentDidMount() {
@@ -14,6 +17,11 @@ class ProductDetails extends React.Component {
     const { id } = params;
     const product = await getProductById(id);
     this.setState({ product });
+
+    const reviews = JSON.parse(localStorage.getItem(id));
+    if (reviews) {
+      this.setState({ reviews });
+    }
   }
 
   addCart = () => {
@@ -31,7 +39,7 @@ class ProductDetails extends React.Component {
   };
 
   render() {
-    const { product } = this.state;
+    const { product, reviews } = this.state;
     return (
       <div>
         <h1 data-testid="product-detail-name">
@@ -62,6 +70,14 @@ class ProductDetails extends React.Component {
             Carrinho
           </button>
         </Link>
+        <Form id={ product.id } />
+        {reviews.map((e, i) => (
+          <ReviewCard
+            key={ i }
+            email={ e.email }
+            text={ e.text }
+            rating={ e.rating }
+          />))}
       </div>
     );
   }
